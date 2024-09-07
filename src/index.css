@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-masonry-grid {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+.my-masonry-grid_column {
+  padding-left: 15px;
+  background-clip: padding-box;
+}
+
+/* Style des éléments */
+.my-masonry-grid_column > img {
+}
+
+a {
+  font-family: "Nanum Gothic";
+}
