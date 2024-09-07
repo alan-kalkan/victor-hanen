@@ -4,8 +4,8 @@
 
 .my-masonry-grid {
   display: flex;
+  justify-content: flex-start;
   width: fit-content;
-  margin: 0 auto;
 }
 .my-masonry-grid_column {
   padding-left: 15px;
@@ -15,7 +15,18 @@
 /* Style des éléments */
 .my-masonry-grid_column > img {
 }
-
-a {
+max-w-custom {
+  max-width: 30rem;
+}
+* {
   font-family: "Nanum Gothic";
+}
+
+.swipper-wrapper {
+  align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #ffff;
 }
