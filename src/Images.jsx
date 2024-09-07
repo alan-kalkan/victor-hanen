@@ -18,5 +18,5 @@ export const images = [
   "dustin6_2.jpg",
   "matthias5_1 2.jpg",
   "nassim2.jpg",
-  "teo final 3 copie 2.jpg"
+  "teo final 3 copie 2.jpg",
 ];
