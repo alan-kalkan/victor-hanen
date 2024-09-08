@@ -22,7 +22,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md">
+    <div className="max-w-md mt-6 mx-auto p-6 bg-white shadow-md">
       <form ref={form} onSubmit={sendEmail} className="space-y-4">
         <div className="flex flex-col">
           <label htmlFor="user_name" className="text-gray-700 font-medium">
