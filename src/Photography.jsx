@@ -78,7 +78,7 @@ export const Photography = () => {
             loading="lazy"
             className="max-w-33 h-auto mb-4 cursor-pointer transition-transform duration-300 hover:brightness-90"
             onClick={() => handleImageClick(index)}
-            src={`./public/assets/${image}`}
+            src={`./assets/${image}`}
             alt={`Image ${index + 1}`}
           />
         ))}
