@@ -76,7 +76,7 @@ export const Photography = () => {
           <img
             key={index}
             loading="lazy"
-            className="max-w-33 h-auto mb-4 cursor-pointer transition-transform duration-300 hover:brightness-90"
+            className="max-w-52 sm:max-w-33 h-auto mb-4 cursor-pointer transition-transform duration-300 hover:brightness-90"
             onClick={() => handleImageClick(index)}
             src={`./assets/${image}`}
             alt={`Image ${index + 1}`}
@@ -92,7 +92,7 @@ export const Photography = () => {
           >
             ×
           </button>
-          <PictureSlider images={imagesLaptop} initialSlide={selectedIndex} />
+          <PictureSlider images={images} initialSlide={selectedIndex} />
         </div>
       )}
     </div>
