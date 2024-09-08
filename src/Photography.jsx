@@ -1,9 +1,8 @@
 // src/Photography.js
 import React, { useState } from "react";
 import Masonry from "react-masonry-css";
-import PictureSlider from "./PictureSlider";
+import { SwiperSlide } from "swiper/react";
 import useIsMobile from "./isMobileHook";
-
 export const Photography = () => {
   const breakpointColumnsObj = {
     default: 2,
@@ -84,17 +83,26 @@ export const Photography = () => {
         ))}
       </Masonry>
 
-      {showSlider && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center">
-          <button
-            onClick={() => setShowSlider(false)}
-            className="absolute top-4 right-4 text-white text-2xl"
-          >
-            ×
-          </button>
-          <PictureSlider images={images} initialSlide={selectedIndex} />
-        </div>
-      )}
+      {showSlider &&
+        // <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center">
+        //   <button
+        //     onClick={() => setShowSlider(false)}
+        //     className="absolute top-4 right-4 text-white text-2xl"
+        //   >
+        //     ×
+        //   </button>
+        //   <PictureSlider images={images} initialSlide={selectedIndex} />
+        // </div>
+        // )}
+        images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={new URL(`./assets/${image}`, import.meta.url).href} // Utilise un chemin dynamique pour les images
+              alt={`Slide ${index}`}
+              className="max-w-7xl"
+            />
+          </SwiperSlide>
+        ))}
     </div>
   );
 };

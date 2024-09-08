@@ -20,7 +20,7 @@ const PictureSlider = ({ images, initialSlide }) => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <img
-              src={`src/assets/${image}`}
+              src={`./assets/${image}`}
               alt={`Slide ${index}`}
               className="w-full h-auto object-cover"
             />
