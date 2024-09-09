@@ -6,6 +6,7 @@ export default {
       maxWidth: {
         33: "33rem",
         21: "21rem",
+        32: "32%",
       },
       zIndex: {
         100: "1000000",

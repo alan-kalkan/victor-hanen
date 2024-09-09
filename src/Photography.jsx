@@ -65,15 +65,18 @@ export const Photography = () => {
     setSelectedIndex(index);
     setShowSlider(true);
   };
+  const handleCloseSlider = () => {
+    setShowSlider(false);
+  };
 
   const images = isMobile ? imagesMobile : imagesLaptop;
   return (
-    <div className="main pt-8 sm:m-6">
+    <div className="main flex justify-around sm:justify-start pt-8 sm:m-6">
       {/* Masonry Grid */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid m-8 sm:justify-start justify-center"
-        columnClassName="my-masonry-grid_column"
+        className="my-masonry-grid"
+        columnClassName="sm:my-masonry-grid_column sm:p-2"
       >
         {images.map((image, index) => (
           <img
@@ -88,14 +91,18 @@ export const Photography = () => {
       </Masonry>
 
       {showSlider && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center">
+        <div className="fixed top-0 left-0 w-full h-full bg-white flex items-center justify-center">
           <button
             onClick={() => setShowSlider(false)}
             className="absolute top-4 right-4 text-white text-2xl"
           >
             ×
           </button>
-          <PictureSlider images={images} initialSlide={selectedIndex} />
+          <PictureSlider
+            images={images}
+            initialSlide={selectedIndex}
+            onClose={handleCloseSlider}
+          />
         </div>
       )}
     </div>

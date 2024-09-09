@@ -14,8 +14,16 @@
 /* Style des éléments */
 .my-masonry-grid_column > img {
 }
+
+.custom-z-index {
+  z-index: 1000000;
+}
+
 max-w-custom {
   max-width: 30rem;
+}
+max-w-50 {
+  max-width: 59%;
 }
 * {
   font-family: "Nanum Gothic";

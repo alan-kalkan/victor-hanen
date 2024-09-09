@@ -1,33 +1,72 @@
-// src/PictureSlider.jsx
-import React from "react";
-import "swiper/css/bundle";
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+// src/PictureSlider.js
+import React, { useEffect, useState } from "react";
 
-const PictureSlider = ({ images, initialSlide }) => {
+const PictureSlider = ({ images, initialSlide, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialSlide);
+  const [transitionClass, setTransitionClass] = useState("");
+
+  useEffect(() => {
+    setTransitionClass("opacity-0 translate-x-10");
+    const timeout = setTimeout(() => {
+      setTransitionClass("opacity-100 translate-x-0");
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex]);
+
+  const nextSlide = () => {
+    setTransitionClass("opacity-0 translate-x-10");
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 300);
+  };
+
+  const prevSlide = () => {
+    setTransitionClass("opacity-0 -translate-x-10");
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    }, 300);
+  };
+
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <Swiper
-        initialSlide={initialSlide}
-        spaceBetween={30}
-        slidesPerView={"auto"}
-        pagination={{ clickable: true }}
-        modules={[Pagination, Navigation]}
-        autoHeight={true}
-        centeredSlides={true}
-        className="max-w-2xl items-center" // Centrer le slider et limiter la largeur maximale
+    <>
+      <button
+        className="absolute bottom-7 top-2/3 md:top-8 md:bg-red-800 text-black p-2 z-50"
+        onClick={onClose}
       >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img
-              src={`./assets/${image}`}
-              alt={`Slide ${index}`}
-              className="w-full h-auto object-cover"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+        ×
+      </button>
+      <div className="relative sm:max-w-32 max-h-full flex justify-center items-center">
+        {/* Close Button */}
+
+        {/* Left Arrow */}
+        <button
+          className="absolute left-1 top-1/2 transform -translate-y-1/2 text-black p-2 rounded-full z-50"
+          onClick={prevSlide}
+        >
+          &#10094;
+        </button>
+
+        {/* Image with smooth transition */}
+        <img
+          src={`./assets/${images[currentIndex]}`}
+          alt={`Slide ${currentIndex + 1}`}
+          className={`max-w-full max-h-full object-contain p-8 transition-all duration-500 ease-in-out transform ${transitionClass}`}
+        />
+
+        {/* Right Arrow */}
+        <button
+          className="absolute right-1 top-1/2 transform -translate-y-1/2  text-black p-2 rounded-full z-50"
+          onClick={nextSlide}
+        >
+          &#10095;
+        </button>
+      </div>
+    </>
   );
 };
 

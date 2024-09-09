@@ -1,7 +1,7 @@
 // src/Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import MenuIcon from "./assets/MenuIconv"; // Assure-toi que ce chemin est correct
+import MenuIcon from "./assets/MenuIconv";
 
 export const Navbar = () => {
   const [navbarIsOpen, setNavbarIsOpen] = useState(false);
@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="z-100 flex top-0 right-0 justify-end pr-11 sm:fixed sm:right-0 sm:top-0 p-4 text-neutral-900">
+      <nav className="custom-z-index flex top-0 right-0 justify-end pr-8 sm:fixed sm:right-0 sm:top-0 p-4 text-neutral-900">
         <button
           onClick={toggleNavbar}
           className={`flex items-center transition-transform duration-300 ${
@@ -25,7 +25,7 @@ export const Navbar = () => {
       </nav>
 
       {navbarIsOpen && (
-        <div className="uppercase top-0 w-full pt-2 bg-white shadow-lg fixed sm:flex sm:flex-col sm:right-0 sm:bottom-0 w-32 sm:p-4 md:w-80 ">
+        <div className="min-h-24 md:absolute md:h-full md:top-20 md:right-20 flex-col uppercase">
           <div onClick={toggleNavbar}>
             <Link
               to="/"
