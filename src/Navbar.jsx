@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed right-0 top-0 p-4 text-neutral-900">
+      <nav className="z-100 flex top-0 right-0 justify-end pr-11 sm:fixed sm:right-0 sm:top-0 p-4 text-neutral-900">
         <button
           onClick={toggleNavbar}
           className={`flex items-center transition-transform duration-300 ${
@@ -25,21 +25,21 @@ export const Navbar = () => {
       </nav>
 
       {navbarIsOpen && (
-        <div className="fixed flex flex-col right-0 bottom-0 w-32 p-4 md:w-80 ">
+        <div className="uppercase top-0 w-full pt-2 bg-white shadow-lg fixed sm:flex sm:flex-col sm:right-0 sm:bottom-0 w-32 sm:p-4 md:w-80 ">
           <div onClick={toggleNavbar}>
             <Link
-              to="/contact"
-              className="text-center block py-2 hover:text-neutral-500 hover:underline"
+              to="/"
+              className=" text-center block py-2 hover:text-neutral-500"
             >
-              Contact
+              Photography
             </Link>
           </div>
           <div onClick={toggleNavbar}>
             <Link
-              to="/"
+              to="/contact"
               className="text-center block py-2 hover:text-neutral-500"
             >
-              Photography
+              Contact
             </Link>
           </div>
         </div>

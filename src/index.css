@@ -4,7 +4,6 @@
 
 .my-masonry-grid {
   display: flex;
-  justify-content: flex-start;
   width: fit-content;
 }
 .my-masonry-grid_column {

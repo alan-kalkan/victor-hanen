@@ -19,19 +19,20 @@ export const Photography = () => {
     "isadora1_5.jpg",
     "armande1_finale_2.jpg",
     "ROSE9 2.jpg",
-    "dustin1_finale.jpg",
+    "dustin1_finale mise a jour.jpg",
     "NoelleNUM2 5.jpg",
     "self1_finale2.jpg",
     "teo6_2.jpg",
     "isadora1_6 2.jpg",
+    "amande3 2.jpg",
     "matthias6_3 2.jpg",
     "TEO.jpg",
-    "isadora7_3.jpg",
     "sekhou6 2.jpg",
-    "dustin6_2.jpg",
+    "isadora7_3.jpg",
     "matthias5_1 2.jpg",
-    "nassim2.jpg",
+    "ROSE1 5.jpg",
     "teo final 3 copie 2.jpg",
+    "nassim2.jpg",
   ];
   const imagesMobile = [
     "nass3-test_tache 3.jpg",
@@ -41,18 +42,20 @@ export const Photography = () => {
     "armande1_finale_2.jpg",
     "self1_finale2.jpg",
     "ROSE9 2.jpg",
-    "dustin1_finale.jpg",
+    "dustin1_finale mise a jour.jpg",
     "angeleprint2.jpg",
     "amande3 2.jpg",
     "nassim2.jpg",
+    "NoelleNUM2 5.jpg",
     "teo6_2.jpg",
     "isadora1_6 2.jpg",
     "matthias6_3 2.jpg",
-    "matthias3_2 2.jpg",
+    "TEO.jpg",
     "sekhou6 2.jpg",
     "isadora7_3.jpg",
     "teo final 3 copie 2.jpg",
     "matthias5_1 2.jpg",
+    "ROSE1 5.jpg",
   ];
 
   const [showSlider, setShowSlider] = useState(false);
@@ -65,18 +68,18 @@ export const Photography = () => {
 
   const images = isMobile ? imagesMobile : imagesLaptop;
   return (
-    <div className="main m-6">
+    <div className="main pt-8 sm:m-6">
       {/* Masonry Grid */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid m-8"
+        className="my-masonry-grid m-8 sm:justify-start justify-center"
         columnClassName="my-masonry-grid_column"
       >
         {images.map((image, index) => (
           <img
             key={index}
             loading="lazy"
-            className="max-w-52 sm:max-w-33 h-auto mb-4 cursor-pointer transition-transform duration-300 hover:brightness-90"
+            className="max-w-21 sm:max-w-33 h-auto mb-4 cursor-pointer transition-transform duration-300 hover:brightness-90"
             onClick={() => handleImageClick(index)}
             src={`./assets/${image}`}
             alt={`Image ${index + 1}`}

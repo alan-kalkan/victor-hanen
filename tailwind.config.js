@@ -5,6 +5,10 @@ export default {
     extend: {
       maxWidth: {
         33: "33rem",
+        21: "21rem",
+      },
+      zIndex: {
+        100: "1000000",
       },
       screens: {
         sm: "576px",
