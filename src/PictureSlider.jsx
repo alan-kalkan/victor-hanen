@@ -1,4 +1,3 @@
-// src/PictureSlider.js
 import React, { useEffect, useState } from "react";
 
 const PictureSlider = ({ images, initialSlide, onClose }) => {
@@ -35,15 +34,13 @@ const PictureSlider = ({ images, initialSlide, onClose }) => {
   return (
     <>
       <button
-        className="absolute bottom-7 top-2/3 md:top-8 md:bg-red-800 text-black p-2 z-50"
+        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 text-black text-3xl p-2 z-50"
         onClick={onClose}
       >
         ×
       </button>
-      <div className="relative sm:max-w-32 max-h-full flex justify-center items-center">
-        {/* Close Button */}
 
-        {/* Left Arrow */}
+      <div className="relative sm:max-w-32 max-h-full flex justify-center items-center">
         <button
           className="absolute left-1 top-1/2 transform -translate-y-1/2 text-black p-2 rounded-full z-50"
           onClick={prevSlide}
@@ -51,16 +48,14 @@ const PictureSlider = ({ images, initialSlide, onClose }) => {
           &#10094;
         </button>
 
-        {/* Image with smooth transition */}
         <img
           src={`./assets/${images[currentIndex]}`}
           alt={`Slide ${currentIndex + 1}`}
           className={`max-w-full max-h-full object-contain p-8 transition-all duration-500 ease-in-out transform ${transitionClass}`}
         />
 
-        {/* Right Arrow */}
         <button
-          className="absolute right-1 top-1/2 transform -translate-y-1/2  text-black p-2 rounded-full z-50"
+          className="absolute right-1 top-1/2 transform -translate-y-1/2 text-black p-2 rounded-full z-50"
           onClick={nextSlide}
         >
           &#10095;
