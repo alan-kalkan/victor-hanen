@@ -4,7 +4,7 @@ import Masonry from "react-masonry-css";
 import PictureSlider from "./PictureSlider";
 import useIsMobile from "./isMobileHook";
 
-export const Photography = () => {
+export const Photography = ({ setIsSliderOpen }) => {
   const breakpointColumnsObj = {
     default: 2,
     1100: 1,
@@ -61,15 +61,19 @@ export const Photography = () => {
   const [showSlider, setShowSlider] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const isMobile = useIsMobile();
+  const images = isMobile ? imagesMobile : imagesLaptop;
+
   const handleImageClick = (index) => {
     setSelectedIndex(index);
     setShowSlider(true);
-  };
-  const handleCloseSlider = () => {
-    setShowSlider(false);
+    setIsSliderOpen(true);
   };
 
-  const images = isMobile ? imagesMobile : imagesLaptop;
+  const handleCloseSlider = () => {
+    setShowSlider(false);
+    setIsSliderOpen(false);
+  };
+
   return (
     <div className="main flex justify-around sm:justify-start pt-8 sm:m-6">
       {/* Masonry Grid */}
@@ -91,10 +95,10 @@ export const Photography = () => {
       </Masonry>
 
       {showSlider && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white flex items-center justify-center">
+        <div className="fixed top-0 left-0 w-full h-full bg-white flex items-center justify-center z-50">
           <button
-            onClick={() => setShowSlider(false)}
-            className="absolute top-4 right-4 text-white text-2xl"
+            onClick={handleCloseSlider}
+            className="absolute top-4 right-4 text-white text-2xl z-50"
           >
             ×
           </button>

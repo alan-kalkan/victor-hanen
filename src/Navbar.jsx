@@ -3,13 +3,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "./assets/MenuIconv";
 
-export const Navbar = () => {
+export const Navbar = ({ isHidden }) => {
   const [navbarIsOpen, setNavbarIsOpen] = useState(false);
 
   const toggleNavbar = (event) => {
     event.preventDefault();
     setNavbarIsOpen((prevState) => !prevState);
   };
+
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <>
@@ -25,7 +29,7 @@ export const Navbar = () => {
       </nav>
 
       {navbarIsOpen && (
-        <div className="min-h-24 md:absolute md:h-full md:top-20 md:right-20 flex-col uppercase">
+        <div className="min-h-24 fixed md:h-full top-20 md:right-20 right-10 flex-col uppercase">
           <div onClick={toggleNavbar}>
             <Link
               to="/"
