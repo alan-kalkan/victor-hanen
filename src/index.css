@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-img {
-  pointer-events: none;
-}
 .my-masonry-grid {
   display: flex;
   width: fit-content;
